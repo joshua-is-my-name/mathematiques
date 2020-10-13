@@ -1,0 +1,29 @@
+def lc(n):
+    return [int(c) for c in str(n)]
+
+def nc(n):
+    return len(lc(n))
+
+def pc(n):
+    if nc(n) ==1: return n
+    else:
+        p = 1
+        for c in lc(n):
+            p=p*c
+        return p
+
+def per(n):
+    cpt=0
+    prd=n
+    while nc(prd) !=1:
+        prd=pc(prd)
+        cpt=cpt+1
+    return(cpt)
+
+pmax, nmax =0,0
+for n in range (0,1000000):
+    if per(n)>pmax:
+        pmax=per(n)
+        nmax=n
+
+print(nmax, pmax)
